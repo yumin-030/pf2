@@ -1,4 +1,9 @@
 @charset "utf-8";
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+}
+
 body {
     font-family:'pretendard',sans-serif;
     position:relative;
@@ -194,7 +199,7 @@ header > .nav_bar {
     position:relative;
 }
 .nav_bar nav > ul > li > a:hover {
-    color:#999;
+    color:#777;
     transition:0.3s;
 }
 .nav_bar nav > ul > li:hover .nav-sub {
@@ -265,7 +270,7 @@ nav .nav-sub {
     padding:20px 30px 5px 0;
     border-radius:5px;
     font-size:14px;
-    color:#999;
+    color:#888;
     font-weight:normal;
     display:none;
 }
@@ -382,10 +387,6 @@ nav .nav-sub > li:hover {
     position:absolute;
     top:210px;
 }
-.con_wrap:hover > .btns {
-    opacity:1;
-    transition:0.3s;
-}
 .con_wrap .main_slider {
     width:100%;
     height:550px;
@@ -450,35 +451,38 @@ nav .nav-sub > li:hover {
     top:15px;
     opacity:0;
 }
-.con_wrap > .btns {
-    width:1500px;
-    height:60px;
+.con_wrap > button {
     position:absolute;
     top:0;
     bottom:0;
-    left:0;
-    right:0;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    opacity:0;
-    transition:0.3s;
-}
-.con_wrap > .btns > button {
+    margin:auto 0;
     width:60px;
     height:60px;
-    opacity:0.3;
-    transition:0.3s;
     border:none;
     background-color:transparent;
     cursor:pointer;
+    transition:0.3s;
+    opacity:0;
 }
-.btns > button:hover {
-    opacity:0.7;
+.con_wrap > .main-prev {
+    left:210px;
+}
+.con_wrap > .main-next {
+    right:210px;
+}
+.con_wrap > .main-prev:hover {
+    opacity:1;
     transition:0.3s;
 }
-.con_wrap > .btns > button > img {
+.con_wrap > .main-next:hover {
+    opacity:1;
+    transition:0.3s;
+}
+.con_wrap:hover > button {
+    opacity:0.3;
+    transition:0.3s;
+}
+.con_wrap > button > img {
     width:100%;
 }
 .con_wrap > .pager {

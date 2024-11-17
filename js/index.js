@@ -3,15 +3,21 @@ $(document).ready(function(){
     mainText();
     $('.modal').show(function(){
         $(this).css({'display':'flex'});
-        $('body').css({'overflow':'hiddne', 'height':'100%'});
-        $('.modal').on('scroll touchmove mousewheel', function(e){
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
+        // $('body').css('overflow','hidden');
+        // $(document).mouseup(function (e){
+        //     $('body').css('overflow','visible');
+        //     let modal = $(".modal");
+        //     if(modal.has(e.target).length === 0){
+        //       modal.css("display",'none');
+        //     }
+        // });    
+        return false;
     });
+
 });
+
 $('.close-pop').click(function(){$('.modal').hide(); return false;});
+
 $(window).scroll(function(){
     if($(window).scrollTop() > 215){
         $('header').css({'position':'fixed','top':'0'});
@@ -80,6 +86,7 @@ $(window).scroll(function(){
         $('.rvw-wrap > ul').css('opacity','0').css('transition','1s');
     };
 });
+
 let topSwiper = new Swiper('.top_banner', {
     direction: "vertical",
     slidesPerView: 1,
@@ -89,11 +96,13 @@ let topSwiper = new Swiper('.top_banner', {
     autoplay: { delay: 4000 },
     easing: "cubic-bezier(0.25, 10, 0.25, 1)",
 });
+
 function reMainText(){
     $('.slide > .text > h2').css('top','40').css('opacity','0');
     $('.slide > .text > p').css('top','20').css('opacity','0');
     $('.slide > .text > a').css('top','15').css('opacity','0');
 };
+
 function mainText(){
     $('.slide > .text > h2').animate({
         top:0,
@@ -110,7 +119,8 @@ function mainText(){
         });
     });
     reMainText();
-}
+};
+
 let mainSlide = $('.main_slider').bxSlider({
     mode: 'fade',
     speed:1000,
@@ -125,6 +135,7 @@ let mainSlide = $('.main_slider').bxSlider({
         $('.cp').text(cp.toString());
     }
 },5000);
+
 let ap = mainSlide.getSlideCount();
 $('.ap').text(ap.toString());
 $('.main-next').click(function(){
@@ -141,22 +152,13 @@ $('.main-prev').click(function(){
 let setSwiper = new Swiper(".set-con", {
     slidesPerView: 4,
     spaceBetween: 18,
-    // renderProgressbar: function (progressbarFillClass) {
-    //     return '<span class="' + progressbarFillClass + '"></span>';
-    // },
-    // renderCustom: function (swiper, current, total) {
-    //   return current + ' of ' + total;
-    // },
-    // pagination: {
-    //   el: ".swiper-pagination",
-    //   clickable: true,
-    // },
     navigation: {
         nextEl: '.set-next',
         prevEl: '.set-prev',
     },
     easing: "cubic-bezier(0.25, 0.1, 0.25, 1)"
 });
+
 let eventSwiper = new Swiper('.eve-con', {
     slidesPerView: 'auto',
     centeredSlides: true,
@@ -164,7 +166,6 @@ let eventSwiper = new Swiper('.eve-con', {
     loopAdditionalSlides: 0,
     speed: 500,
     spaceBetween: 20,
-    // slidesOffsetBefore: 0,
     pagination: {
         el: '.eve-pager',
         clickable: true
@@ -176,17 +177,13 @@ let eventSwiper = new Swiper('.eve-con', {
     autoplay: { delay: 4000 },
     easing: "cubic-bezier(0.25, 0.1, 0.25, 1)",
 });
+
 let brdSwiper = new Swiper('.brd-con', {
     slidesPerView: 2,
     loop: true,
     loopAdditionalSlides: 0,
     speed: 500,
     spaceBetween: 20,
-    // slidesOffsetBefore: 0,
-    // pagination: {
-    //     el: '.brd-pager',
-    //     clickable: true
-    // },
     navigation: {
         nextEl: '.brd-next',
         prevEl: '.brd-prev',
@@ -194,6 +191,7 @@ let brdSwiper = new Swiper('.brd-con', {
     autoplay: { delay: 4000 },
     easing: "cubic-bezier(0.25, 0.1, 0.25, 1)",
 });
+
 let ntcSwiper = new Swiper('.ntc-con', {
     direction: "vertical",
     slidesPerView: 1,
@@ -237,6 +235,7 @@ $('.nav-menu').click(function(){
         onOff = true;
     }
 });
+
 $('.best > .more-btn').click(function(){
     $(this).css('display','none');
     $('.best .hide').css('display','block');
@@ -290,6 +289,7 @@ $('.best > .more-btn').click(function(){
     });
     return false;
 });
+
 $('.event-pg').hover(function(){
     $('.eve-prev').animate({
         opacity:1,
@@ -305,6 +305,7 @@ $('.event-pg').hover(function(){
         opacity:0,
     },300);
 });
+
 $('.scr-top').click(function(){
     $('html,body').animate({scrollTop:0},500);  //천천히 올라감
     return false;
